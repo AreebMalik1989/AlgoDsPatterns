@@ -1,0 +1,4 @@
+Step 1 -> Read the array and key from the user
+Step 2 -> Iterate over the array, comparing the value of each element with key
+Step 3 -> If value of element matches the key, then return the index of element of array
+Step 4 -> If no value of element matches the key, then return -1
