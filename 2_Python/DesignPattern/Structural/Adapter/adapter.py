@@ -1,15 +1,12 @@
 """Adapter design pattern implementation"""
 
 
-import random
-
-
 class Target:
     """
     The Target defines the domain-specific interface used by the client code.
     """
-    def request_number(self) -> str:
-        return f"Your request number: {random.randint(0, 100)}"
+    def request(self) -> str:
+        return "Target: The default target's behavior."
 
 
 class Adaptee:
@@ -18,8 +15,8 @@ class Adaptee:
     incompatible with the existing client code. The adaptee needs some
     adaptation before the client code can use it.
     """
-    def get_request_number(self) -> int:
-        return random.randint(0, 100)
+    def specific_request(self) -> str:
+        return ".eetpadA eht fo roivaheb laicepS"
 
 
 class Adapter(Target):
@@ -30,8 +27,8 @@ class Adapter(Target):
     def __init__(self, adaptee: Adaptee) -> None:
         self.adaptee = adaptee
 
-    def request_number(self) -> str:
-        return f"Your request number: {adaptee.get_request_number()}"
+    def request(self) -> str:
+        return f"Adapter: (TRANSLATED) {self.adaptee.specific_request()[::-1]}"
 
 
 def client_code(target: Target):
@@ -39,7 +36,7 @@ def client_code(target: Target):
     The client code supports all classes that follow the Target's interface.
     """
 
-    print(target.request_number())
+    print(target.request())
 
 
 if __name__ == "__main__":
@@ -49,7 +46,7 @@ if __name__ == "__main__":
 
     adaptee = Adaptee()
     print("Client: The adaptee class has a wierd interface. See I don't understand it:")
-    print(f"Adaptee: {adaptee.get_request_number()}", end="\n\n")
+    print(f"Adaptee: {adaptee.specific_request()}", end="\n\n")
 
     print("Client: But I can work with the Adapter:")
     adapter = Adapter(adaptee)
