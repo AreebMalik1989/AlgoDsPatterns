@@ -1,23 +1,18 @@
-"""
-What the Gang of Four's original Singleton Pattern might look like in Python.
-"""
+"""Singleton design pattern implementation"""
 
 
-class Logger:
+class Foo:
     """
+    Using module as a singleton, this works because after the first time a file
+    is imported, Python doesn't re-execute the code.
+
     Usage:
-    
-        log = Logger.instance()
+
+        from singleton import my_singleton
+        my_singleton.bar()
     """
-    _instance = None
+    def bar(self):
+        pass
 
-    def __init__(self):
-        raise RuntimeError('Call instance() instead')
 
-    @classmethod
-    def instance(cls):
-        if cls._instance is None:
-            print('Creating new instance')
-            cls._instance = cls.__new__(cls)
-            # Put any initialization here
-        return cls._instance
+my_singleton = Foo()
