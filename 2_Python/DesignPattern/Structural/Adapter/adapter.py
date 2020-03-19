@@ -6,26 +6,22 @@ Intent:
     Adapter is a structural design pattern that allows objects with
     incompatible interfaces to collaborate.
 
-Problem:
+Structure:
 
-    Imagine that you’re creating a stock market monitoring app. The app
-    downloads the stock data from multiple sources in XML format and then
-    displays nice-looking charts and diagrams for the user.
-    At some point, you decide to improve the app by integrating a smart
-    3rd-party analytics library. But there’s a catch: the analytics library
-    only works with data in JSON format.
-    You could change the library to work with XML. However, this might break
-    some existing code that relies on the library. And worse, you might not
-    have access to the library’s source code in the first place, making this
-    approach impossible.
+1.  Client: is a class that contains the existing business logic of the
+    program.
 
-Solution:
+2.  Client Interface: describes a protocol that other classes must follow to be
+    able to collaborate with the client code.
 
-    You can create an adapter. This is a special object that converts the
-    interface of one object so that another object can understand it.
-    An adapter wraps one of the objects to hide the complexity of conversion
-    happening behind the scenes. The wrapped object isn’t even aware of the
-    adapter.
+3.  Service: is some useful class (usually 3rd-party or legacy). The client
+    can’t use this class directly because it has an incompatible interface.
+
+4.  Adapter: is a class that’s able to work with both the client and the
+    service -> it implements the client interface, while wrapping the service
+    object. The adapter receives calls from the client via the adapter
+    interface and translates them into calls to the wrapped service object in a
+    format it can understand.
 """
 
 

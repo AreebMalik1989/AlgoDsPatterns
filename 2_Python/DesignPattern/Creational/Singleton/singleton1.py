@@ -9,12 +9,13 @@ Intent:
 
 Implementation:
 
-    1. Make the default constructor private, to prevent other objects from 
-    using the new operator with the Singleton class.
-    2. Create a static creation method that acts as a constructor. Under
-    the hood, this method calls the private constructor to create an object and
-    saves it in a static field. All following calls to this method return the
-    cached object.
+1.  Make the default constructor private, to prevent other objects from using
+    the new operator with the Singleton class.
+
+2.  Create a static creation method that acts as a constructor. Under the hood,
+    this method calls the private constructor to create an object and saves it
+    in a static field. All following calls to this method return the cached
+    object.
 
     Nowadays, the Singleton pattern has become so popular that people may call
     something a singleton even if it solves just one of the listed problems.

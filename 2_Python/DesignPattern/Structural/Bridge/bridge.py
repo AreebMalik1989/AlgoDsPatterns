@@ -28,6 +28,13 @@ Solution:
      one of the dimensions into a separate class hierarchy, so that the
      original classes will reference an object of the new hierarchy, instead of
      having all of its state and behaviors within one class.
+
+Structure:
+
+1.  AbstractField class
+2.  ConcreteField classes
+3.  AbstractMain class having instance of AbstractField class
+4.  ConcreteMain classes
 """
 
 
@@ -86,4 +93,3 @@ if __name__ == "__main__":
     print(blue_square)
     print(red_circle)
     print(blue_circle)
-

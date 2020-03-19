@@ -1,4 +1,32 @@
-"""Builder design pattern implementation"""
+"""
+Builder design pattern implementation
+
+Intent:
+
+    Builder is a creational design pattern that lets you construct complex
+    objects step by step. The pattern allows you to produce different types and
+    representations of an object using the same construction code.
+
+Structure:
+
+1.  Builder interface: declares product construction steps that are common to
+    all types of builders.
+
+2.  Concrete Builders: provide different implementations of the construction
+    steps. Concrete builders may produce products that don’t follow the common
+    interface.
+
+3.  Director class: defines the order in which to call construction steps, so
+    you can create and reuse specific configurations of products.
+
+4.  The Client must associate one of the builder objects with the director.
+    Usually, it’s done just once, via parameters of the director’s constructor.
+    Then the director uses that builder object for all further construction.
+    However, there’s an alternative approach for when the client passes the
+    builder object to the production method of the director. In this case, you
+    can use a different builder each time you produce something with the
+    director.
+"""
 
 
 from abc import ABCMeta, abstractmethod, abstractproperty
