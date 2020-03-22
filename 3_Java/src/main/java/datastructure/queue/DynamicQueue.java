@@ -1,4 +1,4 @@
-package queue;
+package datastructure.queue;
 
 public class DynamicQueue {
 

@@ -1,4 +1,4 @@
-package stack;
+package datastructure.stack;
 
 public class DynamicStack {
 
