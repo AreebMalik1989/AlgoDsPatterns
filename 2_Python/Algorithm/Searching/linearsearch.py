@@ -26,5 +26,3 @@ def linear_search2(array, key):
             return index
     return None
 
-
-print(linear_search1([1,2,3], 3))
