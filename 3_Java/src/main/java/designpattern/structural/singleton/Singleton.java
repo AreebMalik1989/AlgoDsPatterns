@@ -1,4 +1,4 @@
-package designpattern.singleton;
+package designpattern.structural.singleton;
 /*
 * Bill Pugh Singleton
 * This is the most widely used approach as it doesn’t use synchronization.
