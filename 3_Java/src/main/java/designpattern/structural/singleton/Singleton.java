@@ -1,4 +1,7 @@
 package designpattern.structural.singleton;
+
+import java.io.Serializable;
+
 /*
 * Bill Pugh Singleton
 * This is the most widely used approach as it doesn’t use synchronization.
@@ -18,6 +21,55 @@ class SingletonExample {
 
     public static SingletonExample getInstance() {
         return BillPughSingleton.INSTANCE;
+    }
+}
+
+/**
+ * Enum, as written in java docs, provided implicit support for thread safety
+ * and only one instance is guaranteed. Java enum singleton is also a good
+ * way to have singleton with minimal effort.
+ */
+enum EnumSingleton {
+    INSTANCE;
+    public void someMethod(String s) {
+        // some class member
+    }
+}
+
+/**
+ * With so many possible approaches and error cases, below template is
+ * recomended, which is serializable.
+ */
+class SerializableSingleton implements Serializable {
+
+    /**
+     * This is required in cases where your class structure changes between
+     * serialization and deserialization. A changed class structure will cause
+     * the JVM to give an exception in the de-serializing process.
+     * 
+     * It will prevent the compiler from throwing the exception by telling it
+     * that both classes are same, and will load the available instance
+     * variables only.
+     */
+    private static final long serialVersionUID = 1L;
+
+    private SerializableSingleton(){}
+    
+    private static class SerializableSingletonHolder {
+        public static final SerializableSingleton INSTANCE = new SerializableSingleton();
+    }
+
+    public static SerializableSingleton getInstance() {
+        return SerializableSingletonHolder.INSTANCE;
+    }
+
+    /**
+     * This method will be invoked when you will de-serialize the object.
+     * Inside of this method, you must return the existing instance to ensure
+     * a single instance application wide.
+     */
+    protected Object readResolve() {
+        return getInstance();
     }
 }
 
