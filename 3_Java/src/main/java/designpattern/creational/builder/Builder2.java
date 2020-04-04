@@ -1,4 +1,4 @@
-package designpattern.structural.builder;
+package designpattern.creational.builder;
 
 /**
  * Builder interface defines all possible ways to configure a product.

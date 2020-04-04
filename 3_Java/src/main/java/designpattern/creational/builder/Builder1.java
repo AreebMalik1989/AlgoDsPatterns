@@ -1,4 +1,4 @@
-package designpattern.structural.builder;
+package designpattern.creational.builder;
 
 final class Student {
     // final instance fields

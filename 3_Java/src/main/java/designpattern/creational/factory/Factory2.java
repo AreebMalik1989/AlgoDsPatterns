@@ -1,4 +1,4 @@
-package designpattern.structural.factory;
+package designpattern.creational.factory;
 
 /**
  * Product interface

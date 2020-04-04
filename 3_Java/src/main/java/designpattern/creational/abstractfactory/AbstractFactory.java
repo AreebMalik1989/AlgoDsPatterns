@@ -1,4 +1,4 @@
-package designpattern.structural.abstractfactory;
+package designpattern.creational.abstractfactory;
 
 public class AbstractFactory {
 
