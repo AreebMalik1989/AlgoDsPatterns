@@ -68,7 +68,7 @@ class MonkeyHandler(AbstractHandler):
         if request == "Banana":
             return f"Monkey: I'll eat the {request}"
         else:
-            return super().handle(request);
+            return super().handle(request)
 
 
 class SquirrelHandler(AbstractHandler):
@@ -115,4 +115,3 @@ if __name__ == "__main__":
 
     print("Sub-chain: Squirrel > Dog")
     client_code(squirrel)
-
