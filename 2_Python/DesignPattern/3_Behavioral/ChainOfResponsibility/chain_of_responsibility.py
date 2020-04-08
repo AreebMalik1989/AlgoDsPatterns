@@ -1,5 +1,5 @@
 """
-Chain of responsiblity design pattern
+Chain of responsibility design pattern
 
 Intent:
 
