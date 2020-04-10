@@ -141,7 +141,7 @@ class Caretaker:
 
 if __name__ == "__main__":
 
-    originator = Originator("Super-duper-super-puper-super")
+    originator = Originator("Super-duper-super-duper-super")
     caretaker = Caretaker(originator)
 
     caretaker.backup()
