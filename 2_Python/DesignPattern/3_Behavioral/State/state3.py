@@ -1,84 +1,62 @@
-class State:
-    """Base state class"""
-    def __init__(self, stations=None, pos=0, name=""):
+class ComputerState(object):
+    name = "state"
+    allowed = []
 
-        if stations is None:
-            stations = []
+    def switch(self, state):
+        """ Switch to new state """
+        if state.name in self.allowed:
+            print('Current:', self, ' => switched to new state', state.name)
+            self.__class__ = state
+        else:
+            print('Current:', self, ' => switching to', state.name, 'not possible.')
 
-        self._stations = stations
-        self._pos = pos
-        self._name = name
-
-    def scan(self):
-
-        # Scan the dial to the next station
-        self._pos += 1
-
-        # Check for last station
-        if self._pos == len(self._stations):
-            self._pos = 0
-        print(f"Visiting station is {self._stations[self._pos]}  {self._name}")
+    def __str__(self):
+        return self.name
 
 
-class AmState(State):
-
-    def __init__(self, radio):
-        super().__init__(stations=["1250", "1380", "1510"], pos=0, name="AM")
-        self._radio = radio
-
-    def toggle_fm_am(self):
-        print("Switching to FM")
-        self._radio.state = self._radio.fm_state
+class Off(ComputerState):
+    name = "off"
+    allowed = ['on']
 
 
-class FmState(State):
-
-    def __init__(self, radio):
-        super().__init__(stations=["81.3", "89.1", "103.9"], pos=0, name="FM")
-        self._radio = radio
-
-    def toggle_fm_am(self):
-        print("Switching to AM")
-        self._radio.state = self._radio.am_state
+class On(ComputerState):
+    """ State of being powered on and working """
+    name = "on"
+    allowed = ['off', 'suspend', 'hibernate']
 
 
-class Radio:
-    """It has a scan button and FM/AM toggle switch"""
-    def __init__(self):
-        self._fm_state = FmState(self)
-        self._am_state = AmState(self)
-        self._state = self._am_state
+class Suspend(ComputerState):
+    """ State of being in suspended mode after switched on """
+    name = "suspend"
+    allowed = ['on']
 
-    @property
-    def am_state(self):
-        return self._am_state
 
-    @property
-    def fm_state(self):
-        return self._fm_state
+class Hibernate(ComputerState):
+    """ State of being in hibernation after powered on """
+    name = "hibernate"
+    allowed = ['on']
 
-    @property
-    def state(self):
-        return self._state
 
-    @state.setter
-    def state(self, state):
-        self._state = state
+class Computer(object):
+    """ A class representing a computer """
 
-    # Method to toggle the switch
-    def toggle_fm_am(self):
-        self._state.toggle_fm_am()
+    def __init__(self, model='HP'):
+        self.model = model
+        # State of the computer - default is off.
+        self.state = Off()
 
-    # Method to scan
-    def scan(self):
-        self._state.scan()
+    def change(self, state):
+        """ Change state """
+        self.state.switch(state)
 
 
 if __name__ == "__main__":
-
-    radio = Radio()
-    actions = [radio.scan] * 3 + [radio.toggle_fm_am] + [radio.scan] * 3
-    actions *= 2
-
-    for action in actions:
-        action()
+    comp = Computer()
+    # Note we are using On and not On(); because of the `self.__class__ = state` statement in computer state class
+    comp.change(On)
+    comp.change(Off)
+    comp.change(On)
+    comp.change(Suspend)
+    comp.change(Hibernate)
+    comp.change(On)
+    comp.change(Off)
