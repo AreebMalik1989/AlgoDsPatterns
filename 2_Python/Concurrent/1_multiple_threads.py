@@ -4,6 +4,8 @@
 import os
 import threading
 
+processors_to_use = 1 if os.cpu_count() == 1 else os.cpu_count() - 1
+
 
 def cpu_waster():
     """ A simple function that wastes CPU cycles forever """
@@ -19,8 +21,8 @@ def display_process_info():
 # Display information about this process
 display_process_info()
 
-print('\nStarting 2 CPU wasters...')
-for i in range(2):
+print('\nStarting', processors_to_use, 'CPU wasters...')
+for i in range(processors_to_use):
     threading.Thread(target=cpu_waster).start()
 
 
