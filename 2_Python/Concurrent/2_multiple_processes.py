@@ -5,6 +5,8 @@ import os
 import threading
 import multiprocessing as mp
 
+processors_to_use = 1 if mp.cpu_count() == 1 else mp.cpu_count() - 1
+
 
 def cpu_waster():
     """ A simple function that wastes CPU cycles forever """
@@ -23,8 +25,8 @@ if __name__ == "__main__":
     # Display information about this process
     display_process_info()
 
-    print('\nStarting 2 CPU wasters...')
-    for i in range(2):
+    print('\nStarting', processors_to_use, 'CPU wasters...')
+    for i in range(processors_to_use):
         mp.Process(target=cpu_waster).start()
 
     # Display information about this process
