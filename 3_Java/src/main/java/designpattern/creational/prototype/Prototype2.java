@@ -83,7 +83,7 @@ class Rectangle extends Shape {
     }
 }
 
-class Demo {
+class Prototype2 {
 
     public static void main(String[] args) {
 
