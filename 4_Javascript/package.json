@@ -1,0 +1,19 @@
+{
+  "name": "com.github.areebmalik1989.algodspatterns.javascript",
+  "version": "1.0.0",
+  "description": "Algorithm, Data structures and design patterns in javascript",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AreebMalik1989/AlgoDsPatterns.git"
+  },
+  "author": "Areeb Malik",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AreebMalik1989/AlgoDsPatterns/issues"
+  },
+  "homepage": "https://github.com/AreebMalik1989/AlgoDsPatterns#readme"
+}
