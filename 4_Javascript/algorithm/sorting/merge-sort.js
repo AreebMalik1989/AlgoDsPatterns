@@ -1,12 +1,16 @@
 function mergeSort(array) {
 
     size = array.length
+    console.log(array)
 
     if(size > 1) {
 
-        let mid = Math.floor(size/2),
-        left = mergeSort(array.slice(0, mid)),
-        right = mergeSort(array.slice(mid));
+        let mid = Math.floor(size/2)
+        let left = array.slice(0, mid)
+        let right = array.slice(mid)
+
+        mergeSort(left)
+        mergeSort(right)
 
         i = j = k = 0
 
@@ -33,6 +37,4 @@ function mergeSort(array) {
             k++
         }
     }
-    
-    return array
 }
