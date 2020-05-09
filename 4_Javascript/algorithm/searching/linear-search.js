@@ -2,11 +2,11 @@
  * Linear search implementation
  */
 function linearSearch(array, key) {
-    size = array.length
-    for(i=0; i<size; i++) {
+    let size = array.length;
+    for(let i=0; i<size; i++) {
         if(array[i] == key) {
-            return i
+            return i;
         }
     }
-    return null
+    return null;
 }
