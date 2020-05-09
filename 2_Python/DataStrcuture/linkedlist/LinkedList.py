@@ -67,6 +67,7 @@ class LinkedList:
         # 3. If the linked list is empty, then make the new node as head
         if self.head is None:
             self.head = new_node
+            return
 
         # 4. Else traverse till the last node
         last = self.head
