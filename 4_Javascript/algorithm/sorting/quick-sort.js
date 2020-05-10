@@ -1,26 +1,32 @@
+/**
+ * Quick sort implementation
+ * @param {T[]} array - Unsorted array
+ * @param {Number} low - Lower index
+ * @param {Number} high - Higher index
+ * @author Areeb Malik
+ */
 function quickSort(array, low, high) {
 
-    const partition = (a, l, h) => {
+    const partition = (array, low, high) => {
 
-        let i = l - 1;
-        let pivot = a[h];
+        let i = low - 1;
+        let pivot = array[high];
 
-        for(let j=l; j<h; j++) {
+        for(let j=low; j<high; j++) {
 
-            if(a[j] <= pivot) {
+            if(array[j] <= pivot) {
                 i = i+1;
-                [a[i], a[j]] = [a[j], a[i]];
+                [array[i], array[j]] = [array[j], array[i]];
             }
         }
 
-        [a[i+1], a[high]] = [a[high], a[i+1]];
+        [array[i+1], array[high]] = [array[high], array[i+1]];
         return i+1;
     }
 
     if(low < high) {
-        
-        let pi = partition(array, low, high)
-        quickSort(array, low, pi-1)
-        quickSort(array, pi+1, high)
+        let pi = partition(array, low, high);
+        quickSort(array, low, pi-1);
+        quickSort(array, pi+1, high);
     }
 }

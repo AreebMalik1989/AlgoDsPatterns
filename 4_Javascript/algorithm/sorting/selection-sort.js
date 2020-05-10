@@ -1,3 +1,8 @@
+/**
+ * Selection sort algorithm
+ * @param {T[]} array - Unsorted array
+ * @author Areeb malik
+ */
 function selectionSort(array) {
     let size = array.length;
     for(let i=0; i<size-1; i++) {

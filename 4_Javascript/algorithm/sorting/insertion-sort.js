@@ -1,3 +1,8 @@
+/**
+ * Insertion sort implementation
+ * @param {T[]} array - Unsorted array
+ * @author Areeb Malik
+ */
 function insertionSort(array) {
     let size = array.length;
     for(let i=1; i<size; i++) {

@@ -1,3 +1,8 @@
+/**
+ * Merge sort implementation
+ * @param {T[]} array Unsorted array
+ * @author Areeb Malik
+ */
 function mergeSort(array) {
 
     let size = array.length;
