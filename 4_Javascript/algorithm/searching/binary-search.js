@@ -1,3 +1,10 @@
+/**
+ * Binary search implementation using iteration
+ * @param {T[]} sortedArray - Sorted array
+ * @param {Number} key - Item to be found in the sorted array
+ * @returns {Number} Index of the item in the array, or -1 if item is not found in the sorted array
+ * @author Areeb Malik
+ */
 function binarySearch(sortedArray, key) {
     let start = 0;
     let end = sortedArray.length - 1;
@@ -14,6 +21,15 @@ function binarySearch(sortedArray, key) {
     return -1
 }
 
+/**
+ * Binary search implementation using recursion
+ * @param {T[]} sortedArray - Sorted array
+ * @param {*} key - Item to be found in the sorted array
+ * @param {*} start - Starting index
+ * @param {*} end - Ending index
+ * @returns {Number} index of the item in the sorted array, or -ve value if item is not found in the sorted array
+ * @author Areeb Malik
+ */
 function recursiveBinarySearch(sortedArray, key, start, end) {
     if(start<end) {
         let mid = Math.floor((start+end)/2);

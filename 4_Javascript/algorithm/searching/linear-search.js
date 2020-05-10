@@ -1,8 +1,9 @@
 /**
  * Linear search implementation using for loop
- * @param {T[]} array 
- * @param {Number} key 
- * @author Areeb
+ * @param {T[]} array - Unsorted array
+ * @param {Number} key - Item to be found in array
+ * @returns {Number} index of the item in array, or None if item is not in the array
+ * @author Areeb Malik
  */
 function linearSearch1(array, key) {
     let size = array.length;
@@ -14,9 +15,10 @@ function linearSearch1(array, key) {
 
 /**
  * Linear search implementation using for of
- * @param {T[]} array 
- * @param {Number} key 
- * @author Areeb
+ * @param {T[]} array - Unsorted array
+ * @param {Number} key - Item to be found in array
+ * @returns {Number} index of the item in array, or None if item is not in the array
+ * @author Areeb Malik
  */
 function linearSearch2(array, key) {
     for (const [index, value] of array.entries()) {
