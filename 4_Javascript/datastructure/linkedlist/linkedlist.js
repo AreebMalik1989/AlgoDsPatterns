@@ -37,7 +37,7 @@ class LinkedList {
     insertAfter(previousNode, data) {
 
         // 1. Check if the given prev_node exists
-        if(previousNode === null) return;
+        if(!previousNode) return;
 
         // 2. Create new node
         // 3. Put in the data
@@ -61,14 +61,14 @@ class LinkedList {
         let newNode = new LinkedListNode(data);
 
         // 3. If the linked list is empty, then make the new node as head
-        if(this.head === null) {
+        if(!this.head) {
             this.head = newNode;
             return;
         }
 
         // 4. Else traverse till the last node
         let last = this.head;
-        while(last.next !== null) {
+        while(last.next) {
             last = last.next;
         }
 
@@ -86,7 +86,7 @@ class LinkedList {
 
         let curr = this.head;
 
-        while(curr !== null && curr.data !== data) {
+        while(curr && curr.data !== data) {
             curr = curr.next;
         }
 
@@ -103,16 +103,16 @@ class LinkedList {
         // Find the element and keep the reference to the element preceding it
         let curr = this.head;
         let prev = null;
-        while(curr !== null && curr.data !== data) {
+        while(curr && curr.data !== data) {
             prev = curr;
             curr = curr.next;
         }
 
         // Unlink from the list
         // If head node itself holds the item to be deleted
-        if(prev === null) {
+        if(!prev) {
             this.head = curr.next;
-        } else if (curr !== null) {
+        } else if (curr) {
             prev.next = curr.next;
             curr.next = null;
         }
@@ -125,7 +125,7 @@ class LinkedList {
     deleteNodeAtPosition(position) {
         
         // If linked list is empty
-        if(this.head === null || position < 0) return;
+        if(!this.head || position < 0) return;
 
         // Store head node
         let curr = this.head;
@@ -140,12 +140,12 @@ class LinkedList {
         // Find previous node of the node to be deleted
         for(let i=0; i<position-1; i++) {
             curr = curr.next;
-            if(curr === null) break;
+            if(!curr) break;
         }
 
         // If position is more than number of nodes
-        if(curr === null) return;
-        if(curr.next === null) return;
+        if(!curr) return;
+        if(!curr.next) return;
 
         // Node curr.next is to be deleted
         // Store pointer to the next of node to be deleted
@@ -166,7 +166,7 @@ class LinkedList {
         let prevNode = null;
         let nextNode = null;
 
-        while(curr !== null) {
+        while(curr) {
             nextNode = curr.next;
             curr.next = prevNode;
             prevNode = curr;
@@ -184,7 +184,7 @@ class LinkedList {
         let curr = this.head;
         let count = 0;
 
-        while(curr !== null) {
+        while(curr) {
             count++;
             curr = curr.next;
         }
@@ -201,7 +201,7 @@ class LinkedList {
         let s = new Set();
         let curr = this.head;
 
-        while(curr !== null) {
+        while(curr) {
             
             if(s.has(curr)) {
                 return true;
@@ -219,7 +219,7 @@ class LinkedList {
      */
     printList() {
         let curr = this.head;
-        while(curr !== null) {
+        while(curr) {
             console.log(curr.data);
             curr = curr.next;
         }
