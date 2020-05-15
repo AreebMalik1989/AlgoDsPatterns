@@ -16,7 +16,8 @@ function mergeSort(array) {
         mergeSort(left);
         mergeSort(right);
 
-        let i = j = k = 0;
+        let i, j, k;
+        i = j = k = 0;
 
         while((i < left.length) && (j < right.length)) {
             if(left[i] < right[j]) {
