@@ -1,7 +1,21 @@
 class LinkedListNode {
     constructor(data) {
         this.data = data;
-        this.next = null;
+        this._next = null;
+    }
+
+    /**
+     * @returns {LinkedListNode} Reference to next node
+     */
+    get next() {
+        return this._next;
+    }
+
+    /**
+     * @param {LinkedListNode} nextNode - Reference to next node
+     */
+    set next(nextNode) {
+        this._next = nextNode;
     }
 }
 
