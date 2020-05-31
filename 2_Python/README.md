@@ -51,5 +51,5 @@
 ### Greedy
 * Knapsack
 * Huffman Coding
-* Prims and Kruskals algorithms
-* Dijkstra Algorithm
+* Prims and Kruskals algorithms - Minimum Cost Spanning Tree
+* Dijkstra Algorithm - Single Source Shortest Path
