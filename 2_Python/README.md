@@ -46,3 +46,10 @@
 ## Graph
 * DirectedGraph
 * UndirectedGraph
+
+
+### Greedy
+* Knapsack
+* Huffman Coding
+* Prims and Kruskals algorithms
+* Dijkstra Algorithm
