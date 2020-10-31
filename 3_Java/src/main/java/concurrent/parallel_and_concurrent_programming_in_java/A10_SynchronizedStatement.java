@@ -14,7 +14,7 @@ class Shopper extends Thread {
     }
 }
 
-public class SynchronizedStatementDemo {
+public class A10_SynchronizedStatement {
     public static void main(String[] args) throws InterruptedException {
         Thread barron = new Shopper();
         Thread olivia = new Shopper();
