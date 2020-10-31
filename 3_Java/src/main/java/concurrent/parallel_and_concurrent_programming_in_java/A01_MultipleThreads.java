@@ -9,7 +9,7 @@ class CPUWaster extends Thread {
     }
 }
 
-public class A1_MultipleThreads {
+public class A01_MultipleThreads {
 
     private static final Runtime RUNTIME = Runtime.getRuntime();
     private static final int USE_CORES = RUNTIME.availableProcessors()==1? 1 :RUNTIME.availableProcessors()/2;
