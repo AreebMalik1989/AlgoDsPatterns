@@ -35,7 +35,7 @@ class Philosopher extends Thread {
     }
 }
 
-public class DeadlockDemo {
+public class A14_Deadlock {
     public static void main(String[] args) {
         Lock chopstickA = new ReentrantLock();
         Lock chopstickB = new ReentrantLock();
