@@ -17,7 +17,7 @@ class KitchenCleaner extends Thread {
 public class A05_DaemonThread {
     public static void main(String[] args) throws InterruptedException {
         Thread olivia = new KitchenCleaner();
-        olivia.setDaemon(true);
+        olivia.setDaemon(true); // Will not block main thread from exiting, and will terminate with main thread.
         olivia.start();
 
         System.out.println("Barron is cooking...");
