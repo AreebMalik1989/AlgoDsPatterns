@@ -51,6 +51,10 @@ public class A16_Starvation {
             new Philosopher("Barron", chopstickA, chopstickB).start();
             new Philosopher("Olivia", chopstickA, chopstickB).start();
             new Philosopher("Steve", chopstickA, chopstickB).start();
+            /* Following code will cause Barron & Steve to starve
+            new Philosopher("Barron", chopstickA, chopstickB).start();
+            new Philosopher("Olivia", chopstickB, chopstickC).start();
+            new Philosopher("Steve", chopstickA, chopstickC).start();*/
         }
     }
 }
