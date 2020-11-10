@@ -1,6 +1,6 @@
 const id  = x => x;
-const add = a => b => a + b;
-const sub = a => b => a - b;
-const mul = a => b => a * b;
-const div = a => b => a / b;
-const mod = a => b => a % b;
+const add = a => b => b + a;
+const sub = a => b => b - a;
+const mul = a => b => b * a;
+const div = a => b => b / a;
+const mod = a => b => b % a;
