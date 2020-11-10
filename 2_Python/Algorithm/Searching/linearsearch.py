@@ -1,4 +1,13 @@
-def linear_search1(array, key):
+def linear_search1(array):
+    def _(key):
+        for index, value in enumerate(array):
+            if value == key:
+                return index
+        return None
+    return _
+
+
+def linear_search2(array, key):
     """
     Linear search implementation using range in for loop
 
@@ -13,7 +22,7 @@ def linear_search1(array, key):
     return -1
 
 
-def linear_search2(array, key):
+def linear_search3(array, key):
     """
     Linear search implementation using enumerate in for loop
 
@@ -25,4 +34,3 @@ def linear_search2(array, key):
         if value == key:
             return index
     return None
-
