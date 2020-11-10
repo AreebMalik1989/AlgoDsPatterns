@@ -3,7 +3,7 @@ def linear_search1(array):
         for index, value in enumerate(array):
             if value == key:
                 return index
-        return None
+        return -1
     return _
 
 
