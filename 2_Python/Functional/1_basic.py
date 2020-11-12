@@ -1,3 +1,4 @@
+caller = lambda *args, **kwargs: lambda f: f(*args, **kwargs)
 id_ = lambda a: a
 add = lambda a: lambda b: b+a
 sub = lambda a: lambda b: b-a
