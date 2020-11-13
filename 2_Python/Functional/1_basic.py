@@ -13,7 +13,7 @@ def fizzbuzz(n: int) -> str: return (
     str(n)
 )
 
-# Perfect encapsulation & immutability
+# Perfect encapsulation & Immutability (as long as params are immutable themselves)
 def counter(count: int = 0):
     class _Counter:
         def get_count(self):
