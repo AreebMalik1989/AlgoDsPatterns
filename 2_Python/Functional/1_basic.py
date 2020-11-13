@@ -12,3 +12,16 @@ def fizzbuzz(n: int) -> str: return (
     'buzz' if n % 5 == 0 else
     str(n)
 )
+
+# Perfect encapsulation & immutability
+def counter(a: int = 0):
+    class _Counter:
+        def get_a(self):
+            return a
+        def with_a(self, a: int):
+            return counter(a)
+        def increment(self):
+            return counter(a+1)
+        def decrement(self):
+            return counter(a-1)
+    return _Counter()
