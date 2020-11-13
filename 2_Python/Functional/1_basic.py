@@ -14,14 +14,14 @@ def fizzbuzz(n: int) -> str: return (
 )
 
 # Perfect encapsulation & immutability
-def counter(a: int = 0):
+def counter(count: int = 0):
     class _Counter:
-        def get_a(self):
-            return a
-        def with_a(self, a: int):
-            return counter(a)
+        def get_count(self):
+            return count
+        def with_count(self, count: int):
+            return counter(count)
         def increment(self):
-            return counter(a+1)
+            return counter(count+1)
         def decrement(self):
-            return counter(a-1)
+            return counter(count-1)
     return _Counter()
