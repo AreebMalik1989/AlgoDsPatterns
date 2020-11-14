@@ -1,10 +1,7 @@
-def linear_search1(array):
-    def _(key):
-        for index, value in enumerate(array):
-            if value == key:
-                return index
-        return -1
-    return _
+linear_search1 = lambda array: lambda key: (
+    array.index(key) if key in array else
+    -1
+)
 
 
 def linear_search2(array, key):
