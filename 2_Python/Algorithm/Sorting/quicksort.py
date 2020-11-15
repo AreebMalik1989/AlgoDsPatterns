@@ -1,4 +1,13 @@
-def quick_sort(array, low, high):
+def quick_sort1(arr: tuple):
+    if len(arr) == 0:
+        return ()
+    curr, *rest = arr
+    left = tuple(filter(lambda item: item <= curr, rest))
+    right = tuple(filter(lambda item: item > curr, rest))
+    return quick_sort(left) + (curr,) + quick_sort(right)
+
+
+def quick_sort2(array, low, high):
     """
     Quick sort implementation
 
