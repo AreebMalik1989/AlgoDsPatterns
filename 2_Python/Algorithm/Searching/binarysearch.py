@@ -1,16 +1,3 @@
-rbs = lambda a: lambda k: lambda s=0: lambda e=len(a): (
-    find_index(s + (e - s) // 2, a, k, s, e) if s < e else
-    -(s+1)
-)
-
-
-find_index = lambda m, a, k, s, e: (
-    rbs(a)(k)(s)(m) if a[m] > k else
-    rbs(a)(k)(m + 1)(e) if a[m] < k else
-    m
-)
-
-
 def binary_search(sorted_array, key):
     """
     Binary search implementation using iteration
