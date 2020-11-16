@@ -5,7 +5,7 @@ def rbs(sa: tuple, k, s=0, e=None) -> int:
     return (
         -1 if s >= e else
         rbs(sa, k, s, m) if sa[m] > k else
-        rbs(sa, k, m+1, e) if sa[mid] < k else
+        rbs(sa, k, m+1, e) if sa[m] < k else
         m
     )
 
