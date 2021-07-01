@@ -26,3 +26,11 @@ func testBubbleSort(t *testing.T) {
 	}
 }
 	
+func testSelectionSort(t *testing.T) {
+	for _, test := range sortTests {
+		SelectionSort(test.data)
+		if !reflect.DeepEqual(test.data, test.expected) {
+			t.Errorf("Expected: %v, Got: %v", test.expected, test.data)
+		}
+	}
+}
