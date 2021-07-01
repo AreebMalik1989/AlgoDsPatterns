@@ -34,3 +34,13 @@ func testSelectionSort(t *testing.T) {
 		}
 	}
 }
+
+	
+func testInsertionSort(t *testing.T) {
+	for _, test := range sortTests {
+		InsertionSort(test.data)
+		if !reflect.DeepEqual(test.data, test.expected) {
+			t.Errorf("Expected: %v, Got: %v", test.expected, test.data)
+		}
+	}
+}
