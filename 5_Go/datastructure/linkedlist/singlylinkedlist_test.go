@@ -15,11 +15,11 @@ func TestLinkedList(t *testing.T) {
 	t.Run("Test AddAtBeg()", func(t *testing.T) {
 		want := []interface{}{3, 2, 1}
 		got := []interface{}{}
-		current := list.head
-		got = append(got, current.val)
-		for current.next != nil {
-			current = current.next
-			got = append(got, current.val)
+		current := list.Head
+		got = append(got, current.Val)
+		for current.Next != nil {
+			current = current.Next
+			got = append(got, current.Val)
 		}
 		if !reflect.DeepEqual(got, want) {
 			t.Errorf("got: %v, want: %v", got, want)
@@ -31,11 +31,11 @@ func TestLinkedList(t *testing.T) {
 	t.Run("Test AddAtEnd()", func(t *testing.T) {
 		want := []interface{}{3, 2, 1, 4}
 		got := []interface{}{}
-		current := list.head
-		got = append(got, current.val)
-		for current.next != nil {
-			current = current.next
-			got = append(got, current.val)
+		current := list.Head
+		got = append(got, current.Val)
+		for current.Next != nil {
+			current = current.Next
+			got = append(got, current.Val)
 		}
 		if !reflect.DeepEqual(got, want) {
 			t.Errorf("got: %v, want: %v", got, want)
