@@ -13,6 +13,16 @@ double e(int x, int n)
     return r + (p/f);
 }
 
+// Taylor's Series Honer's Rule
+double eh(int x, int n)
+{
+    static double s;
+    if(n == 0)
+        return s;
+    s = 1 + (x*s/n);
+    return eh(x, n-1);
+}
+
 int main()
 {
     printf("%lf \n", e(4, 15));
