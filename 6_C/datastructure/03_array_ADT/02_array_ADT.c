@@ -7,6 +7,14 @@ struct Array
     int length;
 }
 
+void swap(int *x, int *y)
+{
+    int temp;
+    temp = *x;
+    *x = *y;
+    *y = temp;
+}
+
 void Display(struct Array arr)
 {
     int i;
@@ -47,4 +55,20 @@ void Delete(struct Array *arr, int index)
     }
     return 0;
 }
+
+int LinearSearch(struct Array *arr, int key)
+{
+    int i;
+    for(i=0; i<arr->length; i++)
+    {
+        if(key == arr.A[i])
+        {
+            // swapping improves linear search performance
+            // for frequently searched elements by bringing
+            // them in beginning of array
+            swap(&arr.A[i], &arr.A[i-1]);
+            return i;
+        }
+    }
+    return -1;
 
