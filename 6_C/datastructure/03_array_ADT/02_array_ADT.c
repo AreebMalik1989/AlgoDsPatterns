@@ -19,7 +19,7 @@ void Display(struct Array arr)
 {
     int i;
     printf("\nElements are:\n");
-    for(i=0; i<arr->length; i++)
+    for(i=0; i<arr.length; i++)
         printf("%d " arr.A[i]);
 }
 
@@ -71,4 +71,37 @@ int LinearSearch(struct Array *arr, int key)
         }
     }
     return -1;
+}
 
+int BinarySearch(struct Array arr, int key)
+{
+    int l, mid, h;
+    l = 0;
+    h = arr.length-1;
+    while(l <= h)
+    {
+        mid = (l+h)/2;
+        if(key < arr.A[mid])
+            h = mid-1;
+        else if(key > arr.A[mid])
+            l = mid+1;
+        else
+            return mid;
+    }
+    return -1;
+}
+
+int RBinarySearch(struct Array arr, int key, int l, int h)
+{
+    int mid = 0;
+    if(l <= h)
+    {
+        mid = (l+h)/2;
+        if(key < arr.A[mid])
+            return RBinarySearch(arr, key, l, mid-1);
+        else if(key > arr.A[mid])
+            return RBinarySearch(arr, key, mid+1, h);
+        return mid;
+    }
+    return -1;
+}
