@@ -26,11 +26,7 @@ int ifib(int n)
 int F[10];
 
 int mfib(int n)
-{
-    int i;
-    for(i=0; i<10; i++)
-        F[i] = -1;
-    
+{   
     if(n <= 1)
     {
         F[n] = n;
@@ -48,6 +44,9 @@ int mfib(int n)
 
 int main()
 {
+    int i;
+    for(i=0; i<10; i++)
+        F[i] = -1;
     printf("%d \n", mfib(5));
     return 0;
 }
