@@ -1,6 +1,3 @@
-from collections import Counter
-
-
 def are_anagrams1(s1: str, s2: str):
     if len(s1) != len(s2):
         return False
@@ -20,6 +17,9 @@ def are_anagrams1(s1: str, s2: str):
         if key not in freq2 or freq1[key] != freq2:
             return False
     return True
+
+
+from collections import Counter
 
 
 def are_anagrams2(s1: str, s2: str):
