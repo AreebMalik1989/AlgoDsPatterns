@@ -1,4 +1,8 @@
 def are_anagrams1(s1: str, s2: str):
+    """
+    T(n) = O(n)
+    S(n) = O(n)
+    """
     if len(s1) != len(s2):
         return False
     freq1 = dict()
@@ -23,12 +27,20 @@ from collections import Counter
 
 
 def are_anagrams2(s1: str, s2: str):
+    """
+    T(n) = O(n)
+    S(n) = O(n)
+    """
     if len(s1) != len(s2):
         return False
     return Counter(s1) == Counter(s2)
 
 
 def are_anagrams3(s1: str, s2: str):
+    """
+    T(n) = O(nlogn)
+    S(n) = O(n)
+    """
     if len(s1) != len(s2):
         return False
     return sorted(s1) != sorted(s2)
