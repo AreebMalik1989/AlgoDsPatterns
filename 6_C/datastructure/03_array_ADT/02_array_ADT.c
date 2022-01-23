@@ -177,3 +177,46 @@ void Reverse2(struct Array *arr)
     for(i=0, j=arr->length-1; i<j; i++, j--)
         swap(&arr->A[i], &arr->A[j]);
 }
+
+int isSorted(struct Array arr)
+{
+    int i;
+    for(i=0; i<arr.length-1; i++)
+    {
+        if(arr.A[i] > arr.A[i+1])
+            return 0;
+    }
+    return 1;
+}
+
+// Rearrange array such that all negatives are in left and positive in right
+void Rearrange(struct Array *arr)
+{
+    int i, j;
+    i = 0;
+    j = arr->length-1;
+    while(i<j)
+    {
+        while(arr->A[i]<0) i++;
+        while(arr->A[j]>=0) j++;
+        if(i<j) swap(&arr->A[i], &arr->A[j]);
+    }
+}
+
+// Insert element in sorted array
+void Insert(struct Array *sortedArray, int x)
+{
+    int i = sortedArray->length-1;
+    if(sortedArray->length == sortedArray->size)
+        return;
+    
+    while(i >= 0 && sortedArray->A[i] > x)
+    {
+        sortedArray->A[i+1] = sortedArray->A[i];
+        i--;
+    }
+    
+    sortedArray->A[i+1] = x;
+    sortedArray->length++;
+}
+
