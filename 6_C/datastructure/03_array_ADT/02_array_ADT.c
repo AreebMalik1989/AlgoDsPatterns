@@ -246,3 +246,92 @@ struct Array* Merge(struct Array *arr1, struct Array *arr2)
     
     return arr3;
 }
+
+// Union of sorted arrays
+struct Array* Union(struct Array *arr1, struct Array *arr2)
+{
+    int i, j, k;
+    i=j=k=0;
+    
+    struct Array *arr3 = (struct Array *)malloc(sizeof(struct Array));
+    
+    while(i < arr->length && j < arr->length)
+    {
+        if(arr1->A[i] < arr2->A[j])
+            arr3->A[k++] = arr1->A[i++];
+        else if(arr1->A[i] > arr2->A[j])
+            arr3->A[k++] = arr2->A[j++];
+        else
+        {
+            arr3->A[k++] = arr1->A[i++];
+            j++;
+        }
+    }
+
+    while(i < arr1->length)
+        arr3[k++] = arr1->A[i++];
+    while(j < arr2->length)
+        arr3[k++] = arr2->A[j++];
+
+    arr3->length = k;
+    arr3->size = 10;
+
+    return arr3;
+}
+
+// Intersection of sorted arrays
+struct Array* Intersection(struct Array *arr1, struct Array *arr2)
+{
+    int i, j, k;
+    i=j=k=0;
+    
+    struct Array *arr3 = (struct Array*)malloc(sizeof(struct Array));
+    
+    while(i < arr1->length && j < arr2->length)
+    {
+        if(arr1->A[i] < arr2->A[j])
+            i++;
+        else if(arr1->A[i] > arr2->A[j])
+            j++;
+        else
+        {
+            arr3->A[k++] = arr1->A[i++];
+            j++;
+        }
+    }
+    
+    arr3->length = k;
+    arr3->size = 10;
+    
+    return arr3;
+}
+
+// Difference of sorted arrays
+struct Array* Difference(struct Array *arr1, struct Array *arr2)
+{
+    int i, j, k;
+    i=j=k=0;
+    
+    struct Array *arr3 = (struct Array*) malloc(sizeof(struct Array));
+    
+    while(i < arr1->length && j < arr2->length)
+    {
+        if(arr1->A[i] < arr2->A[j])
+            arr3->A[k++] = arr1->A[i++];
+        else if(arr2->A[i] > arr2->A[j])
+            j++;
+        else
+        {
+            i++;
+            j++;
+        }
+    }
+    
+    while(i < arr->length)
+        arr3->A[k++] = arr1->A[i];
+    
+    arr3->length = k;
+    arr3->size = 10;
+    
+    return arr3;
+}
