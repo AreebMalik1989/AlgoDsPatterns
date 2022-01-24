@@ -204,7 +204,7 @@ void Rearrange(struct Array *arr)
 }
 
 // Insert element in sorted array
-void Insert(struct Array *sortedArray, int x)
+void InsertS(struct Array *sortedArray, int x)
 {
     int i = sortedArray->length-1;
     if(sortedArray->length == sortedArray->size)
