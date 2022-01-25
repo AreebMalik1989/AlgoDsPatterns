@@ -318,7 +318,7 @@ struct Array* Difference(struct Array *arr1, struct Array *arr2)
     {
         if(arr1->A[i] < arr2->A[j])
             arr3->A[k++] = arr1->A[i++];
-        else if(arr2->A[i] > arr2->A[j])
+        else if(arr1->A[i] > arr2->A[j])
             j++;
         else
         {
