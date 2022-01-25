@@ -35,6 +35,7 @@ public:
     int Delete(int index);
     int LinearSearch(int key);
     int BinarySearch(int key);
+    int RBinarySearch(int key);
     int Get(int index);
     void Set(int index, int x);
     int Max();
@@ -133,3 +134,242 @@ int Array::BinarySearch(int key)
     return -1;
 }
 
+int Array::RBinarySearch(int key, int l, int h)
+{
+    int mid = 0;
+    if(l <= h)
+    {
+        mid = (l+h)/2;
+        if(key < A[mid])
+            return RBinarySearch(key, l, mid-1);
+        else if(key > A[mid])
+            return RBinarySearch(key, mid+1, h);
+        return mid;
+    }
+    return -1;
+}
+
+int Array::Get(int index)
+{
+    if(index >=0 && index < length)
+        return A[index];
+    return -1;
+}
+
+void Array::Set(int index, int x)
+{
+    if(index >=0 && index < length)
+        A[index] = x;
+}
+
+int Array::Max()
+{
+    int max = A[0];
+    int i;
+    for(i=0; i<length; i++)
+    {
+        if(A[i] > max)
+            max = A[i];
+    }
+    return max;
+}
+
+int Array::Min()
+{
+    int min = A[0];
+    int i;
+    for(i=0; i<length; i++)
+    {
+        if(A[i] < min)
+            min = A[i];
+    }
+    return min;
+}
+
+int Array::Sum()
+{
+    int s = 0;
+    int i;
+    for(i=0; i<length; i++)
+        s += A[i];
+    return s;
+}
+
+float Array::Avg()
+{
+    return (float)Sum(arr)/length;
+}
+
+void Array::Reverse()
+{
+    int *B;
+    int i, j;
+    
+    B = (int *)malloc(arr->length*sizeof(int));
+    
+    for(i=length-1, j=0; i>=0; i--, j++)
+        B[j] = A[i];
+    for(i=0; i<length; i++)
+        A[i] = B[i];
+}
+
+void Array::Reverse2()
+{
+    int i, j;
+    for(i=0, j=length-1; i<j; i++, j--)
+        swap(&A[i], &A[j]);
+}
+
+int Array::isSorted()
+{
+    int i;
+    for(i=0; i<length-1; i++)
+    {
+        if(A[i] > A[i+1])
+            return 0;
+    }
+    return 1;
+}
+
+// Rearrange array such that all negatives are in left and positive in right
+void Array::Rearrange()
+{
+    int i, j;
+    i = 0;
+    j = length-1;
+    while(i<j)
+    {
+        while(A[i]<0) i++;
+        while(A[j]>=0) j++;
+        if(i<j) swap(&A[i], &A[j]);
+    }
+}
+
+// Insert element in sorted array
+void Array::InsertS(int x)
+{
+    int i = length-1;
+    if(length == size)
+        return;
+    
+    while(i >= 0 && A[i] > x)
+    {
+        A[i+1] = A[i];
+        i--;
+    }
+    
+    A[i+1] = x;
+    length++;
+}
+
+// Merge sorted arrays
+Array* Array::Merge(Array arr2)
+{
+    int i, j, k;
+    i=j=k=0;
+    
+    Array *arr3 = new Array(length+arr2.length);
+    
+    while(i < length && j < arr2.length)
+    {
+        if(A[i] < arr2.A[j])
+            arr3.A[k++] = A[i++];
+        else
+            arr3.A[k++] = arr2.A[j++];
+    }
+    
+    while(i < length)
+        arr3->A[k++] = A[i++];
+    while(j < arr2->length)
+        arr3->A[k++] = arr2.A[j++];
+    
+    arr3->length = length + arr2.length;
+    
+    return arr3;
+}
+
+// Union of sorted arrays
+Array* Array::Union(Array arr2)
+{
+    int i, j, k;
+    i=j=k=0;
+    
+    Array *arr3 = new Array(length + arr2.length);
+    
+    while(i < length && j < length)
+    {
+        if(A[i] < arr2.A[j])
+            arr3->A[k++] = A[i++];
+        else if(A[i] > arr2.A[j])
+            arr3->A[k++] = arr2.A[j++];
+        else
+        {
+            arr3->A[k++] = A[i++];
+            j++;
+        }
+    }
+
+    while(i < length)
+        arr3->A[k++] = A[i++];
+    while(j < arr2.length)
+        arr3->A[k++] = arr2.A[j++];
+
+    arr3->length = k;
+    
+    return arr3;
+}
+
+// Intersection of sorted arrays
+Array* Array::Intersection(Array arr2)
+{
+    int i, j, k;
+    i=j=k=0;
+    
+    struct Array *arr3 = new Array(length + arr2.length);
+    
+    while(i < length && j < arr2.length)
+    {
+        if(A[i] < arr2.A[j])
+            i++;
+        else if(A[i] > arr2.A[j])
+            j++;
+        else
+        {
+            arr3->A[k++] = A[i++];
+            j++;
+        }
+    }
+    
+    arr3->length = k;
+    
+    return arr3;
+}
+
+// Difference of sorted arrays
+Array* Array::Difference(Array arr2)
+{
+    int i, j, k;
+    i=j=k=0;
+    
+    struct Array *arr3 = new Array(length + arr2.length);
+    
+    while(i < length && j < arr2.length)
+    {
+        if(A[i] < arr2.A[j])
+            arr3->A[k++] = A[i++];
+        else if(A[i] > arr2.A[j])
+            j++;
+        else
+        {
+            i++;
+            j++;
+        }
+    }
+    
+    while(i < length)
+        arr3->A[k++] = A[i];
+    
+    arr3->length = k;
+    
+    return arr3;
+}
