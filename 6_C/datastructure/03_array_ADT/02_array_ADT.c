@@ -237,9 +237,9 @@ struct Array* Merge(struct Array *arr1, struct Array *arr2)
     }
     
     while(i < arr1->length)
-        arr3[k++] = arr1->A[i++];
+        arr3->A[k++] = arr1->A[i++];
     while(j < arr2->length)
-        arr3[k++] = arr1->A[j++];
+        arr3->A[k++] = arr1->A[j++];
     
     arr3->length = arr1->length + arr2->length;
     arr3->size = 10;
