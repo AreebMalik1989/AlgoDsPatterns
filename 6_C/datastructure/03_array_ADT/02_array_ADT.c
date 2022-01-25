@@ -81,7 +81,7 @@ int BinarySearch(struct Array arr, int key)
     h = arr.length-1;
     while(l <= h)
     {
-        mid = (l+h)/2;
+        mid = l + (h-l)/2;
         if(key < arr.A[mid])
             h = mid-1;
         else if(key > arr.A[mid])
