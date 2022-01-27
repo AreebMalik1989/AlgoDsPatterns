@@ -51,7 +51,7 @@ public:
     Array* Union(Array arr2);
     Array* Intersection(Array arr2);
     Array* Difference(Array arr2);
-}
+};
 
 void Array::swap(int *x, int *y)
 {
