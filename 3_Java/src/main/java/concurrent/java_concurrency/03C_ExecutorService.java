@@ -5,7 +5,7 @@ public class JavaScheduledThreadPool {
 
     public static void main(String[] args) {
 
-        ScheduledExecutorService service = Executors.newWorkStealingPool()
+        ScheduledExecutorService service = Executors.newScheduledThreadPool(Runtime.getRuntime().availableProcessors());
 
         final int INITIAL_DELAY = 10;
         final int DELAY = 12;
