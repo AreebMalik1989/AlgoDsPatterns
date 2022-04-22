@@ -1,4 +1,6 @@
-public class JavaExecutorService {
+public class FixedThreadPoolExecutor {
+    
+    private static Runnable cpuBoundTask = () -> System.out.println("Thread Name: " + Thread.currentThread().getName());
     
     public static void main(String[] args) {
         
@@ -6,7 +8,7 @@ public class JavaExecutorService {
 
         final int TASK_COUNT = 1000;
         for (int i = 0; i < TASK_COUNT; i++) {
-            service.submit(() -> System.out.println("Thread Name: " + Thread.currentThread().getName()));
+            service.submit(cpuBoundTask);
         }
 
         System.out.println("Thread Name: " + Thread.currentThread().getName());
