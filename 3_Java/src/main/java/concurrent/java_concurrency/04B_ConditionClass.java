@@ -17,7 +17,7 @@ public class SharedStack<T> {
                 stackFullCondition.await();
             }
             stack.push(item);
-            stackEmptyCondition.notifyAll();
+            stackEmptyCondition.signalAll();
         } finally {
             lock.unlock();
         }
