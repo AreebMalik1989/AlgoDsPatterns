@@ -4,8 +4,9 @@ const fibonacci = n => {
   return fibonacci(n-1) + fibonacci(n-2);
 }
 
-const tail_rec_fibonacci = (n, a = 0, b = 1) => {
-  if(n < 2)
-    return n;
-  return tail_rec_fibonacci(n-1, b, a+b);
-}
+const tailRecFib = (n, a = 0, b = 1) => {
+    if (n === 0) return a;
+    if (n === 1) return b;
+
+    return tailRecFib(n - 1, b, a + b);
+};
