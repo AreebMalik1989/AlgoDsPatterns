@@ -30,16 +30,15 @@ function binarySearch(sortedArray, key) {
  * @returns {Number} index of the item in the sorted array, or -ve value if item is not found in the sorted array
  * @author Areeb Malik
  */
-function recursiveBinarySearch(sortedArray, key, start, end) {
-    if(start<end) {
-        let mid = Math.floor((start+end)/2);
-        if(sortedArray[mid] > key) {
-            return recursiveBinarySearch(sortedArray, key, start, mid);
-        } else if(sortedArray[mid] < key) {
-            return recursiveBinarySearch(sortedArray, key, mid+1, end);
-        } else {
-            return mid;
-        }
-    }
-    return -(start+1);
+function recursiveBinarySearch(sortedArray, key, start = 0, end = sortedArray.length - 1) {
+	if (start > end) {
+		return -1;
+	}
+	const mid = start + Math.floor((end - start) / 2);
+	if (sortedArray[mid] > key) {
+		return recursiveBinarySearch(sortedArray, key, start, mid - 1);
+	} else if(sortedArray[mid] < key) {
+		return recursiveBinarySearch(sortedArray, key, mid + 1, end);
+	}
+	return mid;
 }
