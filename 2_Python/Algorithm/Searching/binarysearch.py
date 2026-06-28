@@ -25,7 +25,7 @@ def binary_search(sorted_array, key):
     start = 0
     end = len(sorted_array) - 1
     while start <= end:
-        mid = (start + end) // 2
+        mid = start + (end - start) // 2
         if sorted_array[mid] > key:
             end = mid - 1
         elif sorted_array[mid] < key:
