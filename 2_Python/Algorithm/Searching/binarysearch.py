@@ -1,11 +1,15 @@
-def recursive_binary_search(sorted_array: tuple, key, start=0, end=None) -> int:
+def recursive_binary_search(sorted_array, key, start=0, end=None):
     if end is None:
         end = len(sorted_array)
+
+    if start >= end:
+        return -1
+
     mid = start + (end - start) // 2
+
     return (
-        -1 if start >= end else
         recursive_binary_search(sorted_array, key, start, mid) if sorted_array[mid] > key else
-        recursive_binary_search(sorted_array, key, mid+1, end) if sorted_array[mid] < key else
+        recursive_binary_search(sorted_array, key, mid + 1, end) if sorted_array[mid] < key else
         mid
     )
 
